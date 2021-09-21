@@ -82,6 +82,12 @@
     margin-left: 0;
     margin-top: 0;
     text-align: center;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $color-light-cyan;
+      color: $color-very-dark-cyan;
+    }
 
     &__active {
       background-color: $color-primary-cyan;
@@ -111,8 +117,15 @@
     opacity: 0.1;
     color: $color-very-dark-cyan;
 
+    &:hover {
+      background-color: $color-light-cyan;
+    }
+
     &__active {
       opacity: 1;
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 }

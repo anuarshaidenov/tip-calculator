@@ -113,6 +113,12 @@ button {
   margin-left: 0;
   margin-top: 0;
   text-align: center;
+  cursor: pointer;
+}
+
+.btn--tip:hover {
+  background-color: #c5e4e7;
+  color: #00494d;
 }
 
 .btn--tip__active {
@@ -156,8 +162,16 @@ button {
   color: #00494d;
 }
 
+.btn--reset:hover {
+  background-color: #c5e4e7;
+}
+
 .btn--reset__active {
   opacity: 1;
+}
+
+.btn--reset__active:hover {
+  cursor: pointer;
 }
 
 body {
