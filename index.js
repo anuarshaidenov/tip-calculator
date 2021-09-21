@@ -12,23 +12,67 @@ let totalTip = 0,
 // total tip: bill * percentage / 100
 // tip per peson: total tip / number of people
 
-const checkInput = function (value) {
-  if (value <= 0) this.classList.add("input--error");
-  else this.classList.remove("input--error");
+let bill = 0,
+  tip = 0,
+  numberOfPeople = 0;
+
+const calculateTotalTip = function () {
+  totalTip = (Math.round(((bill * tip) / 100) * 100) / 100).toFixed(2);
+  console.log(`totalTip is ${totalTip}`);
+  amountTotal.textContent = `$${totalTip}`;
+  calculateTipPerPerson();
 };
 
-inputBill.addEventListener("focus", function (e) {
-  const value = e.target.value;
-  checkInput.call(this, value);
-});
+const calculateTipPerPerson = function () {
+  if (numberOfPeople <= 0) return;
+  tipPerPerson = (Math.round((totalTip / numberOfPeople) * 100) / 100).toFixed(
+    2
+  );
+  console.log(`tipPerPerson is ${tipPerPerson}`);
+  amountPerPerson.textContent = `$${tipPerPerson}`;
+};
 
-inputBill.addEventListener("focusout", function (e) {
-  this.classList.remove("input--error");
+const isValueZero = function (value) {
+  if (value <= 0) {
+    this.classList.add("input--error");
+    return true;
+  } else {
+    this.classList.remove("input--error");
+    return false;
+  }
+};
+
+[inputBill, inputCustomActive, inputNumberOfPeople].forEach((input) => {
+  input.addEventListener("focus", function (e) {
+    const value = e.target.value;
+    isValueZero.call(this, value);
+  });
+
+  input.addEventListener("focusout", function (e) {
+    this.classList.remove("input--error");
+  });
 });
 
 inputBill.addEventListener("input", function (e) {
   const value = e.target.value;
-  checkInput.call(this, value);
+  if (!isValueZero.call(this, value)) {
+    bill = value;
+    calculateTotalTip();
+  }
+});
+inputCustomActive.addEventListener("input", function (e) {
+  const value = e.target.value;
+  if (!isValueZero.call(this, value)) {
+    tip = value;
+    calculateTotalTip();
+  }
+});
+inputNumberOfPeople.addEventListener("input", function (e) {
+  const value = e.target.value;
+  if (!isValueZero.call(this, value)) {
+    numberOfPeople = value;
+    calculateTotalTip();
+  }
 });
 
 tipsContainer.addEventListener("click", function (e) {
@@ -37,16 +81,7 @@ tipsContainer.addEventListener("click", function (e) {
 
   btnTips.forEach((el) => el.classList.remove("btn--tip__active"));
   btn.classList.add("btn--tip__active");
-});
-
-inputCustomActive.addEventListener("focus", function (e) {
-  const value = e.target.value;
-  checkInput.call(this, value);
-});
-inputCustomActive.addEventListener("focusout", function (e) {
-  this.classList.remove("input--error");
-});
-inputCustomActive.addEventListener("input", function (e) {
-  const value = e.target.value;
-  checkInput.call(this, value);
+  const val = btn.textContent.replace(/\D/g, "");
+  tip = val;
+  calculateTotalTip();
 });
