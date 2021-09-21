@@ -38,8 +38,9 @@ const calculateTipPerPerson = function () {
 
 // Check if input value is valid or not
 const isValueZero = function (value) {
-  if (value <= 0) {
+  if (value <= 0 || value === undefined || value === null) {
     this.classList.add("input--error");
+    checkAndCalculate();
     return true;
   } else {
     this.classList.remove("input--error");
@@ -64,10 +65,9 @@ const checkAndCalculate = function (value) {
     calculateTotalTip();
   }
 };
-[
-  // Display error message when value is invalid for all three inputs
-  (inputBill, inputCustomActive, inputNumberOfPeople),
-].forEach((input) => {
+
+// Display error message when value is invalid for all three inputs
+[(inputBill, inputCustomActive, inputNumberOfPeople)].forEach((input) => {
   input.addEventListener("focus", function (e) {
     const value = e.target.value;
     checkAndCalculate.call(this, value);

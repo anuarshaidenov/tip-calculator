@@ -36,7 +36,7 @@
 
 .input {
   width: 100%;
-  border: none;
+  border: 2px transparent solid;
   background-color: $color-light-grayish-cyan;
   padding: 0.5rem;
   border-radius: 5px;
@@ -93,6 +93,7 @@
     width: 95%;
     background-color: $color-light-grayish-cyan;
     color: $color-very-dark-cyan;
+    border: 2px transparent solid;
     &:focus {
       outline: none;
       text-align: center;
