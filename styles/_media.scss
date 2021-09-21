@@ -6,7 +6,9 @@
 
 @media (min-width: 1024px) {
   body {
-    padding-bottom: 10rem;
+    display: grid;
+    place-items: center;
+    height: 100vh;
   }
 
   .btn--tip {

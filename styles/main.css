@@ -27,6 +27,18 @@ button {
   font-family: "Space Mono", monospace;
 }
 
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
 .logo {
   display: block;
   margin: 0 auto;
@@ -213,7 +225,10 @@ body {
 
 @media (min-width: 1024px) {
   body {
-    padding-bottom: 10rem;
+    display: -ms-grid;
+    display: grid;
+    place-items: center;
+    height: 100vh;
   }
   .btn--tip:hover:hover {
     background-color: #c5e4e7;

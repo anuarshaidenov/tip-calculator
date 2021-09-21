@@ -47,11 +47,30 @@ const isValueZero = function (value) {
   }
 };
 
-// Display error message when value is invalid for all three inputs
-[inputBill, inputCustomActive, inputNumberOfPeople].forEach((input) => {
+const resetValues = function () {
+  bill = tip = numberOfPeople = 0;
+  inputBill.value = inputNumberOfPeople.value = "";
+  inputCustomActive.placeholder = "Custom";
+  amountPerPerson.textContent = `$0.00`;
+  amountTotal.textContent = "$0.00";
+  btnTips.forEach((el) => el.classList.remove("btn--tip__active"));
+};
+
+const checkAndCalculate = function (value) {
+  if (!isValueZero.call(this, value)) {
+    if (this.id === "bill") bill = value;
+    if (this.id === "tip") tip = value;
+    if (this.id === "people") numberOfPeople = value;
+    calculateTotalTip();
+  }
+};
+[
+  // Display error message when value is invalid for all three inputs
+  (inputBill, inputCustomActive, inputNumberOfPeople),
+].forEach((input) => {
   input.addEventListener("focus", function (e) {
     const value = e.target.value;
-    isValueZero.call(this, value);
+    checkAndCalculate.call(this, value);
   });
 
   input.addEventListener("focusout", function (e) {
@@ -63,12 +82,7 @@ const isValueZero = function (value) {
 [inputBill, inputCustomActive, inputNumberOfPeople].forEach((input) => {
   input.addEventListener("input", function (e) {
     const value = e.target.value;
-    if (!isValueZero.call(this, value)) {
-      if (this.id === "bill") bill = value;
-      if (this.id === "tip") tip = value;
-      if (this.id === "people") numberOfPeople = value;
-      calculateTotalTip();
-    }
+    checkAndCalculate.call(this, value);
   });
 });
 
@@ -88,11 +102,7 @@ tipsContainer.addEventListener("click", function (e) {
 btnReset.addEventListener("click", function () {
   if (this.classList.contains("btn--reset__active")) {
     // set bill = 0, tip = 0, numberofpeople = 0 then calculate and display the total tip
-    bill = tip = numberOfPeople = 0;
-    inputBill.value = inputNumberOfPeople.value = 0;
-    inputCustomActive.placeholder = "Custom";
-    amountPerPerson.textContent = `$0.00`;
-    btnTips.forEach((el) => el.classList.remove("btn--tip__active"));
+    resetValues();
     calculateTotalTip();
     this.classList.remove("btn--reset__active");
   }
