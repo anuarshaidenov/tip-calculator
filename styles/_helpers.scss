@@ -84,11 +84,6 @@
     text-align: center;
     cursor: pointer;
 
-    &:hover {
-      background-color: $color-light-cyan;
-      color: $color-very-dark-cyan;
-    }
-
     &__active {
       background-color: $color-primary-cyan;
     }

@@ -116,11 +116,6 @@ button {
   cursor: pointer;
 }
 
-.btn--tip:hover {
-  background-color: #c5e4e7;
-  color: #00494d;
-}
-
 .btn--tip__active {
   background-color: #26c0ab;
 }
@@ -219,6 +214,10 @@ body {
 @media (min-width: 1024px) {
   body {
     padding-bottom: 10rem;
+  }
+  .btn--tip:hover:hover {
+    background-color: #c5e4e7;
+    color: #00494d;
   }
   .input {
     padding: 0.2rem;

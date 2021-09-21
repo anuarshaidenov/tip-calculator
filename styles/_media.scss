@@ -9,6 +9,15 @@
     padding-bottom: 10rem;
   }
 
+  .btn--tip {
+    &:hover {
+      &:hover {
+        background-color: $color-light-cyan;
+        color: $color-very-dark-cyan;
+      }
+    }
+  }
+
   .input {
     padding: 0.2rem;
   }
