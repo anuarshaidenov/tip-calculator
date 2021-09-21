@@ -18,8 +18,8 @@ let bill = 0,
 
 const calculateTotalTip = function () {
   totalTip = (Math.round(((bill * tip) / 100) * 100) / 100).toFixed(2);
-  console.log(`totalTip is ${totalTip}`);
   amountTotal.textContent = `$${totalTip}`;
+  btnReset.classList.add("btn--reset__active");
   calculateTipPerPerson();
 };
 
@@ -28,7 +28,6 @@ const calculateTipPerPerson = function () {
   tipPerPerson = (Math.round((totalTip / numberOfPeople) * 100) / 100).toFixed(
     2
   );
-  console.log(`tipPerPerson is ${tipPerPerson}`);
   amountPerPerson.textContent = `$${tipPerPerson}`;
 };
 
@@ -84,4 +83,17 @@ tipsContainer.addEventListener("click", function (e) {
   const val = btn.textContent.replace(/\D/g, "");
   tip = val;
   calculateTotalTip();
+});
+
+btnReset.addEventListener("click", function () {
+  if (this.classList.contains("btn--reset__active")) {
+    // set bill = 0, tip = 0, numberofpeople = 0 then calculate and display the total tip
+    bill = tip = numberOfPeople = 0;
+    inputBill.value = inputNumberOfPeople.value = 0;
+    inputCustomActive.placeholder = "Custom";
+    amountPerPerson.textContent = `$0.00`;
+    btnTips.forEach((el) => el.classList.remove("btn--tip__active"));
+    calculateTotalTip();
+    this.classList.remove("btn--reset__active");
+  }
 });
