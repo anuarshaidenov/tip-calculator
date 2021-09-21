@@ -1,0 +1,28 @@
+@import "colors";
+body {
+  background-color: $color-light-cyan;
+}
+
+.app {
+  background-color: $color-white;
+  border-radius: 25px;
+  padding: 1rem;
+
+  .tips {
+    margin-top: 0.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .right {
+    background-color: $color-very-dark-cyan;
+    padding: 1em;
+    border-radius: 10px;
+
+    &--row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}

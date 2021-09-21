@@ -1,0 +1,36 @@
+@media (min-width: 700px) {
+  html {
+    font-size: 30px;
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    padding-bottom: 10rem;
+  }
+  .app {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+
+    .left {
+      width: 50%;
+      margin-right: 2rem;
+      .tips {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+    .right {
+      width: 50%;
+      padding: 1.1rem;
+
+      &--row {
+        margin-bottom: 2rem;
+      }
+
+      .btn--reset {
+        margin-top: 30%;
+      }
+    }
+  }
+}
