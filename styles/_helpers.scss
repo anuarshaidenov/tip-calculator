@@ -52,6 +52,10 @@
     outline: none;
     border: 2px $color-primary-cyan solid;
   }
+
+  &--error {
+    border: 2px red solid !important;
+  }
 }
 
 .group {
@@ -91,6 +95,7 @@
     &:focus {
       outline: none;
       text-align: center;
+      border: 2px $color-primary-cyan solid;
     }
 
     &::placeholder {

@@ -83,6 +83,10 @@ button {
   border: 2px #26c0ab solid;
 }
 
+.input--error {
+  border: 2px red solid !important;
+}
+
 .group {
   position: relative;
   margin-bottom: 1rem;
@@ -124,6 +128,7 @@ button {
 .btn--custom:focus {
   outline: none;
   text-align: center;
+  border: 2px #26c0ab solid;
 }
 
 .btn--custom::-webkit-input-placeholder {
@@ -200,6 +205,12 @@ body {
 @media (min-width: 1024px) {
   body {
     padding-bottom: 10rem;
+  }
+  .input {
+    padding: 0.2rem;
+  }
+  .group .input--placeholder {
+    top: 1.6rem;
   }
   .app {
     max-width: 900px;

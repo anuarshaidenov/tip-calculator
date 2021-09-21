@@ -54,7 +54,7 @@
 
         <div class="group">
           <h3 for="people" class="label label--left">Number of people</h3>
-          <input type="number" min="0" id="people" placeholder="0" class="input" />
+          <input type="number" min="1" id="people" placeholder="1" class="input" />
           <img class="input--placeholder" src="./images/icon-person.svg" alt="">
         </div>
       </div>
@@ -62,11 +62,11 @@
       <div class="right">
         <div class="right--row">
           <h3 class="label label--right">Tip Amount</h3>
-          <span class="amount">$0.00</span>
+          <span class="amount" id="amount-person">$0.00</span>
         </div>
         <div class="right--row">
           <h3 class="label label--right">Total</h3>
-          <span class="amount">$0.00</span>
+          <span class="amount" id="amount-total">$0.00</span>
         </div>
         <button class="btn btn--reset">RESET</button>
       </div>
@@ -78,5 +78,6 @@
         >Frontend Mentor</a
       >. Coded by <a href="#">Your Name Here</a>.
     </div>
+    <script src="index.js"></script>
   </body>
 </html>
